@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>ThinkRich By - arjunkrishnan</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'web_app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'web_app/assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'web_app/assets/css/tooplate-main.css' %}">
+    <link rel="stylesheet" href="{% static 'web_app/assets/css/owl.css' %}">
+<!--
+Tooplate 2114 Pixie
+https://www.tooplate.com/view/2114-pixie
+-->
+  </head>
+
+  <body>
+    
+    <!-- Pre Header -->
+    <div id="pre-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <span>"Success is the compounding effect of productive time management"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img src="{% static 'web_app/assets/images/thinkrich.png' %}" alt="" height=""; width="150";></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""><span style="margin-right: 15px;"></span></a>
+            </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+          </li>
+          <form id="logout" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="hidden">
+          </form>
+         
+
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'signup' %}">Sign Up</a>
+            </li>
+          {% endif %} 
+          </ul>          
+        </div>
+      </div>
+    </nav>
+
+{% block content %}
+
+
+{% endblock %}
+
+ <!-- Footer Starts Here -->
+ <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="logo">
+            <img src="{% static 'web_app/assets/images/thinkrich.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="footer-menu">
+              <a href="{% url 'home' %}"></a></li>
+              <a href="#"></a></li>
+              
+              
+                <div class="line-dec"></div>
+                <h3>Contact me on</h3>
+              
+
+              <a href="#"></a>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="social-icons">
+            <ul>
+              <li><a href="https://www.facebook.com/aarjnair"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/arjunrkj"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/arjun-krishnan-046a90252/"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="https://www.github.com/arjunrkj"><i class="fa fa-github"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Ends Here -->
+
+
+  <!-- Sub Footer Starts Here -->
+  <div class="sub-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright-text">
+            <p>Copyright &copy; 2023 ThinkRich by - Arjun Krishnan
+              
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Sub Footer Ends Here -->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'web_app/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'web_app/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+  <!-- Additional Scripts -->
+  <script src="{% static 'web_app/assets/js/custom.js' %}"></script>
+  <script src="{% static 'web_app/assets/js/owl.js' %}"></script>
+
+
+  <script language = "text/Javascript"> 
+    cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+    function clearField(t){                   //declaring the array outside of the
+    if(! cleared[t.id]){                      // function makes it static and global
+        cleared[t.id] = 1;  // you could use true and false, but that's more typing
+        t.value='';         // with more chance of typos
+        t.style.color='#fff';
+        }
+    }
+  </script>
+
+
+</body>
+
+</html>

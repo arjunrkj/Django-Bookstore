@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+
+      <!-- Featred Ends Here -->
+
+      <center><form method="POST" action="" style="margin:auto;max-width:400px">
+        {% csrf_token %}
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form></center>
+      <br>
+      <br>
+
+
+      <div class="container-fluid p-0 m-0 
+      align-items-center 
+      justify-content-center d-flex"
+  style="min-height: 100vh;">
+
+<!-- Row for the card-->
+<div class="row w-100 p-0 w-0">
+
+  <!-- Column for card-->
+  {% for book in book %}
+  <div class="col-lg-4 mb-2">
+      <div class="card mx-auto" style="width:18rem;">
+          <img class="card-img-top" src="{{book.image.url}}"
+                      alt="Card image cap">
+
+          <div class="card-body">
+              <h5 class="card-title">
+                  {{book.name}}
+              </h5>
+              <p class="card-text">
+                 - {{book.author}}
+            </p>
+            <br>
+              <p class="card-text">
+                  {{book.desc}}
+              </p>
+              <p class="card-text" style="color: maroon;">
+                &#x20B9;{{book.amount}}
+              </p>
+            
+  <br>
+                <center>
+  <a href="{% url 'thankyou' %}" class="btn btn-primary" role="button">Buy Now</a>
+                </center>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+
+  {% if result %}
+  {% for book in result %}
+  <div class="col-lg-4 mb-2">
+      <div class="card mx-auto" style="width:18rem;">
+          <img class="card-img-top" src="{{book.image.url}}"
+                      alt="Card image cap">
+  
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{book.name}}
+                </h5>
+                <p class="card-text">
+                    - {{book.author}}
+              </p>
+              <br>
+                <p class="card-text">
+                    {{book.desc}}
+                </p>
+                <p class="card-text" style="color: maroon;">
+                  &#x20B9;{{book.amount}}
+                </p>
+              
+    <br>
+                  <center>
+    <a href="{% url 'thankyou' %}" class="btn btn-primary" role="button">Buy Now</a>
+                  </center>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+
+</div>
+</div>
+  
+      <!-- Subscribe Form Starts Here -->
+      <div class="subscribe-form">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <div class="line-dec"></div>
+                <h1>Thanks for visiting</h1>
+              </div>
+            </div>
+            <div class="col-md-8 offset-md-2">
+              <div class="main-content">
+                <p> Website developed by Arjun Krishnan as part of the online bookstore project conducted by SkillVertex</p>
+                <div class="container">
+                  <form id="subscribe" action="" method="get">
+                    <div class="row">
+                      <div class="col-md-7">
+                        <fieldset>
+                          
+                        </fieldset>
+                      </div>
+                      <div class="col-md-5">
+                        <fieldset>
+                         
+                        </fieldset>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Subscribe Form Ends Here -->
+
+
+
+{% endblock %} 

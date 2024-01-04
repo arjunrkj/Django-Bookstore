@@ -1,0 +1,53 @@
+
+    <title>Thank You for Your Purchase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .thank-you-icon {
+            font-size: 64px;
+            color: #4CAF50;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+
+    <div class="container">
+        <i class="fa fa-check-circle thank-you-icon"></i>
+        <h1>Thank You for Your Purchase</h1>
+        <p>Your order has been successfully processed.</p>
+       
+        
+        <a href="{% url 'home' %}" class="btn">Back to Home</a>
+    </div>
+
